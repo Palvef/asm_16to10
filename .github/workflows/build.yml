@@ -16,20 +16,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up TASM and TLink
+    - name: Install TASM and TLink using winget
       run: |
-        # 下载并安装 TASM 和 TLink
-        choco install borland-c
+        # 安装 TASM 和 TLink
+        winget install --id Borland.TASM --exact --source winget
+        winget install --id Borland.TLink --exact --source winget
 
     - name: Compile assembly to object file
       run: |
-        # 在 Windows 环境中使用 TASM 编译汇编代码
-        tasm Decimal_Hex.asm
+        # 使用 TASM 编译汇编代码
+        C:\Program Files (x86)\Borland\TASM\tasm Decimal_Hex.asm
 
     - name: Link object file to EXE
       run: |
         # 使用 TLink 链接生成 EXE 文件
-        tlink Decimal_Hex.obj
+        C:\Program Files (x86)\Borland\TASM\tlink Decimal_Hex.obj
 
     - name: Upload EXE as artifact
       uses: actions/upload-artifact@v3
