@@ -19,7 +19,7 @@ jobs:
     - name: Set up TASM and TLink
       run: |
         # 下载并安装 TASM 和 TLink
-        choco install borland-c --version=5.5.1
+        choco install borland-c
 
     - name: Compile assembly to object file
       run: |
