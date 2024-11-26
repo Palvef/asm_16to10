@@ -32,7 +32,7 @@ jobs:
         tlink Decimal_Hex.obj
 
     - name: Upload EXE as artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Decimal_Hex-exe
         path: Decimal_Hex.exe
